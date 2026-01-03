@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Video Editing Services | PrimeReach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#050507',
+            accent: '#E6FF00'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: #050507;
+      color: white;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    .text-accent { color: #E6FF00; }
+
+    /* HERO ANIMATION */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade {
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .delay-1 { animation-delay: .15s; }
+    .delay-2 { animation-delay: .35s; }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ACCENT CARD */
+    .accent-card {
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.01)
+      );
+      border: 1px solid rgba(230,255,0,0.35);
+      border-radius: 24px;
+      padding: 36px;
+      backdrop-filter: blur(8px);
+    }
+    /* ===============================
+   LOGO SHINE EFFECT (PREMIUM)
+   =============================== */
+
+.logo-shine {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.logo-shine img {
+  height: 40px;
+  display: block;
+
+  /* ✅ SHOW ORIGINAL COLORS */
+  filter: none;
+
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* Shine layer */
+.logo-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(230,255,0,0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+/* Hover effect */
+.logo-shine:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.logo-shine:hover::after {
+  animation: shineMove 0.8s ease forwards;
+}
+
+@keyframes shineMove {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+  </style>
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+<section class="relative py-28 max-w-7xl mx-auto px-6 text-center overflow-hidden">
+
+  <!-- BG -->
+  <div class="absolute inset-0 z-0">
+    <img src="./images/hero-bg1.jpg" class="w-full h-full object-cover opacity-60"/>
+    <div class="absolute inset-0 bg-black/60"></div>
+  </div>
+
+  <!-- GLOW -->
+  <div class="absolute inset-0 z-10 pointer-events-none">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+      w-[700px] h-[700px] bg-accent/10 blur-[180px] rounded-full"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative z-20">
+
+    <span class="text-accent text-xs tracking-[0.4em] uppercase font-mono block animate-fade delay-1">
+      PRIME REACH EDITING
+    </span>
+
+    <h1 class="mt-6 text-5xl md:text-6xl font-bold leading-[1.1] animate-fade delay-2">
+      Edit Your Content for<br>
+      <span class="text-accent">Long-Form & Short-Form Growth</span>
+    </h1>
+<!-- SOFTWARE TOOLS -->
+<div class="mt-10 flex justify-center items-center gap-8 flex-wrap
+            animate-fade delay-2 opacity-80">
+
+  <div class="logo-shine">
+    <img src="./images/premiere-pro.png" alt="Adobe Premiere Pro">
+  </div>
+
+  <div class="logo-shine">
+    <img src="./images/after-effects.png" alt="Adobe After Effects">
+  </div>
+
+  <div class="logo-shine">
+    <img src="./images/davinci-resolve.png" alt="DaVinci Resolve">
+  </div>
+
+  <div class="logo-shine">
+    <img src="./images/photoshop.png" alt="Adobe Photoshop">
+  </div>
+
+</div>
+
+
+  </div>
+    <!-- SMOOTH BOTTOM FADE (REMOVES IMAGE CUT LINE) -->
+  <div class="absolute bottom-0 left-0 w-full h-40 z-20 pointer-events-none
+              bg-gradient-to-b from-transparent to-[#050507]">
+  </div>
+
+</section>
+
+<!-- ================= STEP 01 ================= -->
+<section class="reveal max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+  <div>
+    <span class="text-accent text-xs tracking-[0.3em] font-mono">STEP 01</span>
+    <h2 class="text-3xl font-bold mt-3 mb-4">Choose Your Editing Style</h2>
+    <p class="text-gray-400 text-sm mb-5">
+      Select the editing format that fits your content and audience.
+    </p>
+    <ul class="space-y-2 text-sm">
+      <li>✔ YouTube long-form authority edits</li>
+      <li>✔ Instagram & Reels short-form edits</li>
+      <li>✔ Podcast, cinematic, or documentary style</li>
+    </ul>
+  </div>
+
+  <div class="accent-card">
+    <p class="text-accent text-xs font-mono mb-2">STYLE FIRST</p>
+    <p class="text-gray-300 text-sm">
+      Every edit starts with choosing the right format and vibe.
+    </p>
+  </div>
+</section>
+
+<!-- ================= STEP 02 ================= -->
+<section class="reveal max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+  <div class="accent-card order-2 md:order-1">
+    <p class="text-accent text-xs font-mono mb-2">CUSTOMIZATION</p>
+    <p class="text-gray-300 text-sm">
+      Edits are refined based on your niche, pacing, and audience behavior.
+    </p>
+  </div>
+
+  <div class="order-1 md:order-2">
+    <span class="text-accent text-xs tracking-[0.3em] font-mono">STEP 02</span>
+    <h2 class="text-3xl font-bold mt-3 mb-4">We Customize the Edit</h2>
+    <ul class="space-y-2 text-sm">
+      <li>✔ Retention-based cuts & pacing</li>
+      <li>✔ Captions, motion & clarity</li>
+      <li>✔ Platform-specific optimization</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= STEP 03 ================= -->
+<section class="reveal max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+  <div>
+    <span class="text-accent text-xs tracking-[0.3em] font-mono">STEP 03</span>
+    <h2 class="text-3xl font-bold mt-3 mb-4">On-Time Delivery & Approval</h2>
+    <ul class="space-y-2 text-sm">
+      <li>✔ Guaranteed on-time delivery</li>
+      <li>✔ One free 30-second sample edit</li>
+      <li>✔ Revisions based on feedback</li>
+    </ul>
+  </div>
+
+  <div class="accent-card">
+    <p class="text-accent text-xs font-mono mb-2">TRUST BUILDER</p>
+    <p class="text-gray-300 text-sm">
+      You approve the style before full production begins.
+    </p>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-28 text-center">
+  <h2 class="text-4xl font-bold mb-6">Ready to start editing?</h2>
+  <a href="https://calendly.com/contact-primereachco/30min" target="_blank"
+  class="inline-block bg-accent text-black px-12 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:scale-105 transition">
+  Book Free Sample
+</a>
+</section>
+
+<!-- ================= JS ================= -->
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

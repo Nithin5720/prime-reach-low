@@ -1,0 +1,2937 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrimeReach | Content Growth Studio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        'bg': '#050507',
+                        'card': '#0f0f13',
+                        'textSoft': '#9CA3AF',
+                        'primary': '#FF2E63',
+                        'secondary': '#7C3AED',
+                        'gold': '#FFB703',
+                        'borderSoft': 'rgba(255,255,255,0.08)',
+                    },
+                    backgroundImage: {
+                        'brand-gradient': 'linear-gradient(135deg, #FF2E63 0%, #7C3AED 100%)',
+                        'warm-overlay': 'linear-gradient(to bottom, rgba(255, 183, 3, 0.02), transparent)',
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+                        'pop': 'pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both',
+                        'marquee-right': 'marqueeRight 40s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'draw-line': 'drawLine 2.5s ease-out forwards', 
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                        },
+                        pop: {
+                            '0%': { transform: 'scale(0.8)', opacity: '0' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        marqueeRight: {
+                            '0%': { transform: 'translateX(-50%)' },
+                            '100%': { transform: 'translateX(0%)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+  /* your existing CSS above */
+
+  /* =============================
+     HERO SOCIAL MEDIA VIBE
+     ============================= */
+
+  @keyframes heroFloat {
+    0% { transform: translateY(0) rotate(-3deg); }
+    100% { transform: translateY(-30px) rotate(3deg); }
+  }
+
+  section.relative h1 {
+    letter-spacing: -0.04em;
+  }
+
+  section.relative p {
+    opacity: 0.85;
+  }
+
+  .metric-chip {
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+
+  @media (max-width: 768px) {
+    .floating-icon-container {
+      display: none;
+    }
+  }
+
+</style>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #FF2E63;
+            --secondary: #7C3AED;
+            --gold: #FFB703;
+        }
+
+        body {
+            background-color: #050507;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Visibility Fixes */
+        .noise-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        @media (hover: none) {
+            .cursor-dot, .cursor-dot-outline, .cursor-badge { display: none; }
+            * { cursor: auto; }
+        }
+       
+
+        
+
+       /* ATOMIK STYLE CARD */
+.soft-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px;
+  box-shadow: none;
+  transition: all 0.35s ease;
+}
+
+.soft-card.in-view:hover {
+  transform: translateY(-6px);
+}
+
+.soft-card i {
+  color: #E6FF00 !important;
+  opacity: 0.9;
+}
+.soft-card li {
+  color: rgba(255,255,255,0.65);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.soft-card li::before {
+  content: "✓";
+  color: #E6FF00;
+  margin-right: 8px;
+}
+.service-explore-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.service-explore-btn:hover {
+  border-color: #E6FF00;
+  color: #E6FF00;
+}
+
+
+        .soft-btn {
+            background: linear-gradient(135deg, #FF2E63, #7C3AED);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            z-index: 1;
+            border-radius: 14px;
+            border: none;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .orb-1 { width: 500px; height: 500px; background: #FF2E63; top: -20%; left: -10%; animation: float 14s ease-in-out infinite alternate; }
+        .orb-2 { width: 400px; height: 400px; background: #7C3AED; bottom: 5%; right: -5%; animation: float 16s ease-in-out infinite alternate-reverse; }
+
+        .ai-input {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        .ai-input:focus {
+            border-color: #FF2E63;
+            background: rgba(255, 46, 99, 0.05);
+            outline: none;
+        }
+
+        .metric-chip {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .service-scroll-container {
+            cursor: grab;
+            overflow-x: hidden; 
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        /* BIGGER Circular Creator Frame */
+        .client-circle-lg {
+            width: 200px; 
+            height: 200px; 
+            border-radius: 50%;
+            background: rgba(15, 15, 19, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        .client-circle-lg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .client-circle-lg:hover img {
+            transform: scale(1.1);
+        }
+        .client-circle-lg:hover {
+  border-color: #E6FF00;
+}
+
+
+        .step-card {
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.8s ease;
+        }
+        .step-card.in-view { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+
+        .pain-title { color: #ff6b6b; font-weight: 700; font-size: 1.25rem; margin-bottom: 0.25rem; }
+        .pain-desc { color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+
+        #crash-line { filter: drop-shadow(0 0 8px rgba(255, 80, 80, 0.25)); }
+        #crash-line.animate { animation: drawCrash 3s linear forwards; }
+        @keyframes drawCrash { to { stroke-dashoffset: 0; opacity: 1; } }
+        
+        .crash-dot { opacity: 0; transition: opacity 0.2s ease; }
+        .crash-dot.animate { opacity: 1; }
+        .crash-text { opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; }
+        .crash-text.visible { opacity: 1; transform: translateY(0) !important; }
+
+        /* Premium Floating Animation */
+        @keyframes float-premium {
+            0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+            33% { transform: translate3d(20px, -40px, 0) rotate(5deg); }
+            66% { transform: translate3d(-15px, -70px, 0) rotate(-5deg); }
+            100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+        }
+
+        .floating-icon-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .floating-icon {
+  position: absolute;
+
+  /* 🔥 INCREASE VISIBILITY */
+  opacity: 0.14;              /* was 0.06 */
+  filter: blur(0.9px);        /* sharper */
+  
+  /* 🔥 POP MORE */
+  transform: scale(1.15);
+  
+  will-change: transform;
+  animation: float-premium linear infinite;
+}
+
+
+
+.video-showcase-section {
+  padding: 80px 0;
+}
+
+/* ===============================
+   3 PHONE FRAMES – FINAL LAYOUT
+   =============================== */
+
+.showcase-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+  perspective: 1400px;
+}
+
+/* PHONE FRAME */
+.showcase-card {
+  width: 300px;
+  height: 560px;
+  position: relative;
+  overflow: hidden;
+
+  /* 📱 PHONE BODY */
+  background: linear-gradient(
+    180deg,
+    #0b0b0b 0%,
+    #000 100%
+  );
+
+  border-radius: 48px;
+
+  /* 🔥 THICK PHONE BEZEL */
+  box-shadow:
+    0 50px 120px rgba(0,0,0,0.95),
+    inset 0 0 0 2px rgba(255,255,255,0.08),
+    inset 0 0 0 6px rgba(0,0,0,0.9);
+
+  transition: transform .5s cubic-bezier(.175,.885,.32,1.275);
+}
+.showcase-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.08),
+    transparent 40%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+/* FIX CENTER FRAME HOVER */
+.showcase-card.tilt-center:hover {
+  transform: translateZ(140px) scale(1.06);
+  z-index: 12;
+}
+
+
+/* VIDEO */
+.showcase-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* FOOTER (PROFILE + NAME) */
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(to top, rgba(0,0,0,.9), transparent);
+  z-index: 5;
+}
+
+/* AVATAR */
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TEXT */
+.meta strong {
+  font-size: 13px;
+  display: block;
+}
+.meta span {
+  font-size: 11px;
+  opacity: .65;
+}
+
+/* ===============================
+   TILT POSITIONS
+   =============================== */
+
+.tilt-left {
+  transform: rotateY(18deg) rotateZ(-2deg) scale(.96);
+}
+
+.tilt-center {
+  transform: rotateY(0deg) rotateZ(0deg) scale(.96);
+}
+
+
+
+.tilt-right {
+  transform: rotateY(-18deg) rotateZ(2deg) scale(.96);
+}
+
+/* LEFT HOVER */
+.showcase-card.tilt-left:hover {
+  transform: rotateY(18deg) rotateZ(-2deg) translateZ(80px) scale(1.02);
+  z-index: 5;
+}
+
+/* CENTER HOVER — FIXED */
+.showcase-card.tilt-center:hover {
+  transform:
+    rotateY(0deg)
+    rotateZ(0deg)
+    translateZ(140px)
+    scale(1.06);
+  z-index: 20;
+}
+
+
+/* RIGHT HOVER */
+.showcase-card.tilt-right:hover {
+  transform: rotateY(-18deg) rotateZ(2deg) translateZ(80px) scale(1.02);
+  z-index: 5;
+}
+#clients-section span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+}
+
+
+
+
+/* ================= HORIZONTAL SHOWCASE (16:9) ================= */
+
+.horizontal-showcase-section {
+  padding: 1px 0 10px;
+  position: relative;
+  z-index: 5;
+}
+
+.horizontal-row {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+}
+
+/* 16:9 FRAME */
+.horizontal-card {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #0b0b0b;
+  box-shadow:
+    0 40px 90px rgba(0,0,0,.85),
+    inset 0 0 0 1px rgba(255,255,255,.08);
+  transition: transform .45s cubic-bezier(.175,.885,.32,1.275),
+              box-shadow .45s ease;
+}
+
+/* VIDEO */
+.horizontal-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* GRADIENT OVERLAY */
+.horizontal-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.75),
+    rgba(0,0,0,.25),
+    transparent
+  );
+  pointer-events: none;
+}
+
+/* META */
+.horizontal-meta {
+  position: absolute;
+  left: 24px;
+  bottom: 20px;
+  z-index: 2;
+}
+
+.horizontal-meta strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+
+.horizontal-meta span {
+  font-size: 12px;
+  opacity: .65;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+/* HOVER */
+.horizontal-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow:
+    0 60px 120px rgba(0,0,0,.95),
+    inset 0 0 0 1px rgba(255,46,99,.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .horizontal-row {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+/* CIRCULAR VIDEO THUMB / AVATAR */
+.horizontal-meta {
+  position: absolute;
+  bottom: 28px;   /* ← CHANGE THIS VALUE */
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* CIRCULAR PROFILE IMAGE */
+.horizontal-avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+.horizontal-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* TEXT BLOCK */
+.horizontal-text strong {
+  display: block;
+  font-size: 14px;
+}
+
+.horizontal-text span {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+
+.sound-toggle {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  z-index: 10;
+}
+.unmute-btn {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 16px;
+}
+/* =========================
+   YELLOW HERO OVERRIDE
+   ========================= */
+
+.hero-yellow {
+  --brand-primary: #E6FF00;
+  --brand-secondary: #E6FF00;
+  --brand-accent: #E6FF00;
+}
+
+/* Buttons */
+.hero-yellow .soft-btn {
+  background: #E6FF00 !important;
+  color: #000 !important;
+  box-shadow: 0 0 40px rgba(230,255,0,0.45);
+}
+
+/* Pills / Chips */
+.hero-yellow .metric-chip,
+.hero-yellow .pill,
+.hero-yellow .badge {
+  background: rgba(230,255,0,0.15) !important;
+  border-color: rgba(230,255,0,0.4) !important;
+  color: #E6FF00 !important;
+}
+
+/* Text accents */
+.hero-yellow .text-primary,
+.hero-yellow .text-secondary {
+  color: #E6FF00 !important;
+}
+
+/* Background accents */
+.hero-yellow .bg-primary,
+.hero-yellow .bg-secondary {
+  background: #E6FF00 !important;
+}
+
+/* Headline cleanup */
+.hero-yellow h1 span {
+  background: none !important;
+  color: #fff !important;
+}
+
+/* Sub text */
+.hero-yellow p {
+  color: rgba(255,255,255,0.75);
+}
+/* NAV BUTTON FORCE YELLOW */
+.hero-yellow ~ nav .soft-btn,
+nav .soft-btn {
+  background: #E6FF00 !important;
+  color: #000 !important;
+}
+/* FORCE HERO ICONS TO YELLOW */
+.hero-yellow i {
+  color: #E6FF00 !important;
+}
+/* ============================
+   FORCE YELLOW ON CREATOR CLICK
+   ============================ */
+
+/* Remove browser focus outline */
+#clients-section *:focus {
+  outline: none !important;
+}
+
+/* Circle border on hover / click */
+#clients-section .client-circle-lg {
+  border-color: rgba(230,255,0,0.4) !important;
+}
+
+/* Hover */
+#clients-section .client-circle-lg:hover {
+  border-color: #E6FF00 !important;
+  box-shadow: 0 0 35px rgba(230,255,0,0,0.35) !important;
+}
+
+/* Active / Click */
+#clients-section .client-circle-lg:active {
+  border-color: #E6FF00 !important;
+  box-shadow: 0 0 45px rgba(230,255,0,0,0.45) !important;
+}
+
+/* Any pink text override */
+#clients-section .text-primary {
+  color: #E6FF00 !important;
+}
+
+/* Icons inside creators */
+#clients-section i {
+  color: #E6FF00 !important;
+}
+
+/* FORCE SERVICES INTO 2 VERTICAL CARDS */
+#service-container {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+#service-track {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  position: static !important;
+  transform: none !important;
+  width: 100%;
+}
+/* REMOVE PINK BULLETS – USE YELLOW */
+.soft-card li span,
+.soft-card li i {
+  color: #E6FF00 !important;
+}
+
+/* If bullet is a dot */
+.soft-card li::marker {
+  color: #E6FF00;
+}
+/* REMOVE ALL PINK FROM SERVICE CARDS */
+.soft-card,
+.soft-card:hover {
+  box-shadow: none !important;
+}
+
+.soft-card:hover {
+  border-color: #E6FF00 !important;
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-6px);
+}
+.service-explore-btn {
+  border-color: rgba(255,255,255,0.2) !important;
+  color: white !important;
+}
+
+.service-explore-btn:hover {
+  border-color: #E6FF00 !important;
+  color: #E6FF00 !important;
+  background: transparent !important;
+}
+#services-section .text-primary {
+  color: #E6FF00 !important;
+}
+/* ===============================
+   SERVICES: 2-COLUMN FULL WIDTH
+   =============================== */
+
+#service-container {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+#service-track {
+  position: static !important;
+  transform: none !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* REMOVE ALL PINK – FORCE YELLOW */
+#services-section .text-primary,
+#services-section .border-primary,
+#services-section .bg-primary {
+  color: #E6FF00 !important;
+  border-color: #E6FF00 !important;
+  background-color: transparent !important;
+}
+
+/* Card hover */
+.soft-card:hover {
+  border-color: #E6FF00 !important;
+  box-shadow: 0 0 0 1px rgba(230,255,0,0.4) !important;
+}
+@media (max-width: 900px) {
+  #service-track {
+    grid-template-columns: 1fr;
+  }
+}
+/* Bullet + check icons */
+.soft-card li span,
+.soft-card li i {
+  color: #E6FF00 !important;
+}
+/* FULL WIDTH 2-CARD LAYOUT */
+#service-track {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr; /* 50% + 50% */
+  gap: 64px;
+  width: 100vw;                  /* FULL SCREEN */
+               /* Nice side breathing space */
+  margin: 0 auto;
+  transform: none !important;
+  position: static !important;
+}
+.soft-card {
+  width: 100%;
+  min-height: 420px;
+}
+/* ===============================
+   REMOVE PINK ON SERVICE CLICK
+   =============================== */
+
+/* Remove default focus outlines */
+#services-section *:focus,
+#services-section *:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Service card normal */
+#services-section .soft-card {
+  border-color: rgba(255,255,255,0.08) !important;
+}
+
+/* Hover = YELLOW */
+#services-section .soft-card:hover {
+  border-color: #E6FF00 !important;
+  box-shadow: 0 0 0 1px rgba(230,255,0,0.4) !important;
+}
+
+/* Click / Active = YELLOW (NO PINK) */
+#services-section .soft-card:active,
+#services-section .soft-card:focus,
+#services-section .soft-card:focus-visible {
+  border-color: #E6FF00 !important;
+  background: rgba(255,255,255,0.03) !important;
+  box-shadow: 0 0 0 1px rgba(230,255,0,0.6) !important;
+}
+
+/* Remove pink overlay layer */
+#services-section .bg-primary,
+#services-section .border-primary,
+#services-section .text-primary {
+  background: transparent !important;
+  border-color: #E6FF00 !important;
+  color: #E6FF00 !important;
+}
+
+/* Button inside service */
+#services-section .service-explore-btn:focus,
+#services-section .service-explore-btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #E6FF00 !important;
+  color: #E6FF00 !important;
+}
+/* =========================
+   HERO YELLOW CTA BUTTON
+   ========================= */
+
+.hero-yellow .soft-btn,
+.hero-yellow-btn {
+  background: #E6FF00;
+  color: #0b0b0b;
+  box-shadow: 0 10px 40px rgba(230, 255, 0, 0.25);
+}
+
+.hero-yellow .soft-btn:hover,
+.hero-yellow-btn:hover {
+  background: #f2ff4d;
+  box-shadow: 0 15px 50px rgba(230, 255, 0, 0.4);
+}
+/* Yellow hero metric chip */
+.hero-yellow-chip {
+  background: rgba(230, 255, 0, 0.12);
+  color: #E6FF00;
+  border: 1px solid rgba(230, 255, 0, 0.4);
+  text-shadow: 0 0 12px rgba(230, 255, 0, 0.4);
+  box-shadow:
+    0 0 25px rgba(230, 255, 0, 0.15),
+    inset 0 0 10px rgba(230, 255, 0, 0.08);
+}
+.hero-yellow-chip:hover {
+  background: rgba(230, 255, 0, 0.2);
+  box-shadow:
+    0 0 40px rgba(230, 255, 0, 0.35);
+  transform: translateY(-2px);
+}
+/* ===============================
+   3D SCROLL-IN ANIMATION (CARDS)
+   =============================== */
+.reveal-3d {
+  opacity: 0;
+  transform:
+    translateY(80px)
+    translateZ(-120px)
+    rotateX(12deg)
+    rotateY(-6deg)
+    scale(0.92);
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.8s ease;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.reveal-3d.in-view {
+  opacity: 1;
+  transform:
+    translateY(0)
+    translateZ(0)
+    rotateX(0deg)
+    rotateY(0deg)
+    scale(1);
+}
+
+/* SAFETY: SHOW CARDS IF JS FAILS */
+.no-js .reveal-3d {
+  opacity: 1 !important;
+  transform: none !important;
+}
+/* ===============================
+   KNOW MORE BUTTON – REFINED PREMIUM
+   =============================== */
+
+.service-explore-btn {
+  background: #E6FF00;
+  color: #0b0b0b;              /* 🔥 darker text = visible */
+  border-radius: 999px;
+  width: fit-content;
+  padding: 11px 24px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+
+  /* 🔥 Reduced glow */
+  box-shadow: 0 4px 14px rgba(230,255,0,0.25);
+
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+/* Hover – subtle, professional */
+.service-explore-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(230,255,0,0.35);
+  background: #f1ff4a; /* slightly softer yellow */
+}
+
+/* Arrow micro-move */
+.service-explore-btn i {
+  transition: transform 0.25s ease;
+}
+
+.service-explore-btn:hover i {
+  transform: translateX(4px);
+}
+
+
+.service-explore-btn {
+  background: #E6FF00;
+  color: #0b0b0b !important;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+
+  box-shadow: 0 3px 10px rgba(230,255,0,0.22);
+  transition: all 0.25s ease;
+
+  opacity: 1 !important;
+}
+
+.service-explore-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(230,255,0,0.3);
+  background: #f2ff4d;
+}
+/* ===============================
+   KNOW MORE BUTTON – STATE FIX
+   =============================== */
+
+.service-explore-btn {
+  background: #E6FF00;
+  color: #0b0b0b !important;
+  border: none;
+  outline: none;
+  opacity: 1;
+  position: relative;
+  z-index: 10;
+}
+
+/* REMOVE BLACK FLASH ON CLICK */
+.service-explore-btn:active,
+.service-explore-btn:focus,
+.service-explore-btn:focus-visible {
+  background: #E6FF00 !important;
+  color: #0b0b0b !important;
+  outline: none !important;
+  box-shadow: 0 4px 14px rgba(230,255,0,0.25);
+}
+
+/* Smooth press effect */
+.service-explore-btn:active {
+  transform: translateY(0);
+}
+
+/* ===============================
+   COMPACT FAQ STYLE
+   =============================== */
+
+.faq-section {
+  padding: 120px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: #050507;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.faq-pill {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  font-weight: 700;
+  color: #E6FF00;
+  margin-bottom: 14px;
+}
+
+.faq-header h2 {
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.faq-header h2 span {
+  color: #E6FF00;
+}
+
+.faq-header p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+}
+
+/* FAQ BOX */
+.faq-item {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  margin-bottom: 14px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.02);
+}
+
+/* QUESTION */
+.faq-toggle {
+  width: 100%;
+  padding: 18px 22px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-toggle i {
+  color: #E6FF00;
+  transition: transform 0.25s ease;
+}
+
+/* ANSWER (NO SPACE WHEN CLOSED) */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 22px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  transition: max-height 0.35s ease, padding 0.25s ease;
+}
+
+/* OPEN STATE */
+.faq-item.active .faq-answer {
+  max-height: 180px;
+  padding: 0 22px 18px;
+}
+
+.faq-item.active .faq-toggle i {
+  transform: rotate(45deg);
+}
+
+/* ===============================
+   HOW IT WORKS – PREMIUM STYLE
+   =============================== */
+
+.how-section {
+  padding: 160px 24px;
+  background: #050507;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+.how-header {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.how-pill {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  font-weight: 700;
+  color: #E6FF00;
+  margin-bottom: 16px;
+}
+
+.how-header h2 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.how-header h2 span {
+  color: #E6FF00;
+}
+
+.how-header p {
+  margin-top: 16px;
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+}
+
+/* STEP WRAPPER */
+.how-step {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 140px;
+}
+
+/* NUMBER */
+.how-number {
+  font-size: 96px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  text-align: right;
+}
+
+/* CONTENT */
+.how-content h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.how-content p {
+  font-size: 15px;
+  max-width: 520px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+}
+
+/* ===============================
+   SCROLL ANIMATION
+   =============================== */
+
+.reveal-step {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(80px) scale(0.96);
+  transition:
+    opacity 0.9s ease,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s ease;
+  will-change: transform, opacity;
+}
+
+/* Direction */
+.step-left {
+  transform: translateX(-60px) translateY(80px) scale(0.96);
+}
+
+.step-right {
+  transform: translateX(60px) translateY(80px) scale(0.96);
+}
+
+/* ACTIVE */
+.reveal-step.in-view {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0) translateY(0) scale(1);
+}
+
+/* Hover polish */
+.how-step:hover {
+  transform: translateY(-6px);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .how-step {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .how-number {
+    text-align: center;
+  }
+}
+
+/* ===============================
+   BASE
+   =============================== */
+body {
+  margin: 0;
+  background: #050507;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #ffffff;
+}
+
+.hiw {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 24px 40px; /* ↓ less bottom space */
+}
+
+
+/* HEADER */
+.hiw-header {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+
+.hiw-header h2 {
+  margin-top: 18px;
+  font-size: 48px;
+  font-weight: 800;
+}
+/* NAVBAR FONT FIX */
+nav a {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+
+/* ===============================
+   TIMELINE
+   =============================== */
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(230,255,0,0.35),
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+/* STEP */
+.step {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 140px;
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.step.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step.left {
+  flex-direction: row;
+}
+
+.step.right {
+  flex-direction: row-reverse;
+}
+
+/* DOT */
+.step-dot {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  width: 18px;
+  height: 18px;
+  background: #E6FF00;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 40px rgba(230,255,0,0.6);
+}
+
+/* CONTENT */
+.step-content {
+  width: 45%;
+  padding: 42px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 22px;
+  position: relative;
+}
+
+.step-content h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.step-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+}
+
+/* NUMBER */
+.step-number {
+  position: absolute;
+  top: -28px;
+  font-size: 80px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.05);
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+@media (max-width: 900px) {
+  .timeline::before {
+    left: 16px;
+  }
+
+  .step {
+    flex-direction: column !important;
+    padding-left: 40px;
+  }
+
+  .step-content {
+    width: 100%;
+  }
+
+  .step-dot {
+    left: 16px;
+    transform: none;
+  }
+}
+/* ===============================
+   YELLOW PREMIUM ANIMATIONS
+   =============================== */
+
+/* Animated center line fill */
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #E6FF00,
+    #E6FF00,
+    transparent
+  );
+  transform: translateX(-50%);
+  transition: height 1.2s ease;
+}
+
+/* Line fills when active */
+.timeline.active::after {
+  height: 100%;
+}
+
+/* Yellow pulse dot */
+.step-dot {
+  animation: pulseGlow 2.4s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 rgba(230,255,0,0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 18px rgba(230,255,0,0.8),
+      0 0 40px rgba(230,255,0,0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(230,255,0,0.4);
+  }
+}
+
+/* Step box yellow glow on reveal */
+.step.show .step-content {
+  box-shadow:
+    0 0 0 1px rgba(230,255,0,0.35),
+    0 0 60px rgba(230,255,0,0.12);
+  transition: box-shadow 0.6s ease;
+}
+
+/* Hover = stronger glow */
+.step-content:hover {
+  box-shadow:
+    0 0 0 1px rgba(230,255,0,0.6),
+    0 0 80px rgba(230,255,0,0.25);
+}
+
+/* Subtle yellow text accent */
+.step-content h3::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: #E6FF00;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+/* FIX EXTRA GAP ABOVE HOW IT WORKS */
+.hiw {
+  padding-top: 60px !important;   /* was 140px */
+}
+
+/* Remove margin collapsing from previous section */
+#services-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 80px; /* controlled spacing */
+}
+/* HOW IT WORKS HEADING FIX */
+.hiw-header h2 {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hiw-header .accent {
+  color: #E6FF00;
+  font-weight: 700;
+}
+
+.hiw-header .dot {
+  color: #E6FF00;
+  margin: 0 2px;
+}
+/* HOW IT WORKS – MATCH PREVIOUS HEADINGS */
+.hiw-header {
+  text-align: center;
+  margin-bottom: 120px;
+}
+
+.hiw-pill {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.35em;
+  font-weight: 700;
+  color: #E6FF00;
+  margin-bottom: 16px;
+}
+
+.hiw-header h2 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.hiw-header h2 span {
+  color: #E6FF00;
+}
+
+/* HOW IT WORKS – FINAL FIX */
+.hiw-title {
+  color: #ffffff;
+}
+
+.hiw-title .hiw-how {
+  color: #E6FF00;
+}
+
+
+/* ===============================
+   HOW IT WORKS – FINAL FIX
+   =============================== */
+
+.hiw-title {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+.hiw-title .hiw-how {
+  color: #E6FF00;
+  font-weight: 800;
+}
+
+.clients-section .client-name,
+.clients-section .client-role,
+.clients-section p,
+.clients-section span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+#clients-section span {
+  text-transform: capitalize !important; /* First letter capital */
+  letter-spacing: 0.14em;                /* Slightly tighter for readability */
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+}
+
+
+/* ===============================
+   HORIZONTAL MARQUEE – 16:9
+   =============================== */
+
+.horizontal-marquee {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+animation: marqueeLeft 22s linear infinite;
+
+  padding-left: 100%;
+}
+
+@keyframes marqueeLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-card {
+  width: 420px;
+  aspect-ratio: 16 / 9;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #0b0b0b;
+
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.9),
+    inset 0 0 0 1px rgba(255,255,255,0.08);
+
+  transition: transform 0.45s cubic-bezier(.175,.885,.32,1.275),
+              box-shadow 0.45s ease;
+}
+
+.marquee-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover polish */
+.marquee-card:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow:
+    0 60px 120px rgba(0,0,0,0.95),
+    inset 0 0 0 1px rgba(230,255,0,0.35);
+}
+
+/* Pause animation on hover */
+.horizontal-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .marquee-card {
+    width: 300px;
+  }
+}
+/* ===============================
+   MICRO INTERACTION POLISH
+   =============================== */
+
+/* Button press feel */
+button, .service-explore-btn, .soft-btn {
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+button:active, .service-explore-btn:active {
+  transform: scale(0.97);
+}
+
+/* Card hover depth */
+.soft-card:hover,
+.showcase-card:hover,
+.horizontal-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Smooth icon motion */
+i {
+  transition: transform .25s ease, opacity .25s ease;
+}
+
+/* ===============================
+   FIX: PARTNERED CREATORS HEADING
+   =============================== */
+
+/* Force perfect center alignment */
+#clients-section h2 {
+  text-align: center !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.1;
+}
+
+/* "Partnered" → YELLOW */
+#clients-section h2 span:first-child,
+#clients-section h2 .partnered {
+  color: #E6FF00 !important;
+  font-weight: 600;
+}
+
+/* "Creators" → WHITE */
+#clients-section h2 span:last-child,
+#clients-section h2 .creators {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+/* Remove accidental spacing/stretch */
+#clients-section h2 span {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+/* FIX LETTER SPACING FOR PARTNERED CREATORS HEADING */
+#clients-section h2 {
+  letter-spacing: -0.02em !important; /* tighten overall */
+}
+
+#clients-section h2 span {
+  letter-spacing: -0.01em !important; /* prevent inherited tracking */
+}
+
+
+
+</style>
+</head>
+
+<body class="no-js antialiased selection:bg-primary selection:text-white relative">
+
+
+    <div class="noise-overlay"></div>
+    <div class="fixed inset-0 bg-warm-overlay pointer-events-none z-[1]"></div>
+
+    
+
+  
+
+
+
+    <!-- STUDIO PORTFOLIO OVERLAY -->
+    <div id="service-details-overlay" class="fixed inset-0 bg-[#050507] z-[10000] hidden transition-opacity duration-500 opacity-0 overflow-y-auto">
+        <div class="min-h-screen p-6 md:p-12 relative">
+            <button id="close-service-details" class="fixed top-6 right-6 z-50 bg-white/10 hover:bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center backdrop-blur transition-all">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="max-w-7xl mx-auto mt-12">
+                <div class="text-center mb-20">
+                    <span class="text-primary text-xs font-bold tracking-[0.2em] uppercase block mb-4">Studio Archives</span>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight font-display italic">Selected <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Case Studies</span></h1>
+                    <p class="text-textSoft text-lg max-w-2xl mx-auto">Precision editing and narrative structures for professional channels.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20 portfolio-grid">
+                    <div class="soft-card p-4 group cursor-pointer tilt-card border-white/10">
+                        <div class="aspect-[9/16] bg-gray-900 rounded-xl mb-4 relative overflow-hidden">
+                            <div class="absolute top-2 right-2 text-white/40 z-20 text-lg"><i class="fab fa-youtube"></i></div>
+                            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4"><div class="metric-chip">Retention: 64%</div></div>
+                        </div>
+                        <h3 class="text-white font-bold text-xl mb-1">Educational Narrative</h3>
+                        <p class="text-textSoft text-xs uppercase tracking-wide">Flow Optimized • High-Retention Cuts</p>
+                    </div>
+                    <div class="soft-card p-4 group cursor-pointer tilt-card border-white/10">
+                        <div class="aspect-[9/16] bg-gray-900 rounded-xl mb-4 relative overflow-hidden">
+                            <div class="absolute top-2 right-2 text-white/40 z-20 text-lg"><i class="fab fa-instagram"></i></div>
+                            <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1374&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4"><div class="metric-chip">CTR Improvement: +12%</div></div>
+                        </div>
+                        <h3 class="text-white font-bold text-xl mb-1">Short-Form Authority</h3>
+                        <p class="text-textSoft text-xs uppercase tracking-wide">Pacing Refined • Narrative Hooks</p>
+                    </div>
+                    <div class="soft-card p-4 group cursor-pointer tilt-card border-white/10">
+                        <div class="aspect-[9/16] bg-gray-900 rounded-xl mb-4 relative overflow-hidden">
+                            <div class="absolute top-2 right-2 text-white/40 z-20 text-lg"><i class="fab fa-youtube"></i></div>
+                            <img src="https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=1364&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-4 left-4"><div class="metric-chip">Systematic Reach: 2M+</div></div>
+                        </div>
+                        <h3 class="text-white font-bold text-xl mb-1">Founder Case Study</h3>
+                        <p class="text-textSoft text-xs uppercase tracking-wide">Studio Grade • Intentional Transitions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- NAVIGATION -->
+<nav class="fixed w-full z-50 top-0 left-0 border-b border-white/5 bg-[#050507]/90 backdrop-blur-md">
+  
+  <!-- NAV BAR -->
+  <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+
+ <a href="#"
+   class="text-2xl font-sans tracking-tight flex items-center">
+  <span class="font-extrabold text-white">
+    Prime
+  </span>
+  <span class="ml-1 font-medium text-[#E6FF00]">
+    Reach
+  </span>
+</a>
+
+
+
+
+    </a>
+
+    <!-- DESKTOP MENU -->
+    <div class="hidden md:flex items-center gap-10 text-[11px] font-bold text-gray-500 uppercase tracking-widest">
+      <a href="#services-section" class="hover:text-white transition-colors">Services</a>
+      <a href="#clients-section" class="hover:text-white transition-colors">Creators</a>
+      <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+      <a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a>
+
+    </div>
+
+    <!-- RIGHT SIDE (CTA + MOBILE BUTTON) -->
+<a
+  href="https://calendly.com/contact-primereachco/30min"
+  target="_blank"
+  class="inline-flex items-center justify-center
+         bg-[#E6FF00] text-black
+         px-6 py-2
+         rounded-full
+         text-[10px] font-semibold
+         uppercase tracking-[0.22em]
+         transition-all duration-300
+         hover:scale-105 hover:shadow-[0_8px_30px_rgba(230,255,0,0.35)]
+         active:scale-95"
+>
+  Book Call
+</a>
+
+
+
+
+      <!-- ✅ MOBILE MENU BUTTON (FIXED POSITION) -->
+      <button id="mobile-menu-btn"
+              class="md:hidden text-white text-xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+  </div>
+  </nav>
+
+
+  <!-- MOBILE MENU -->
+  
+
+
+    <!-- 1. HERO SECTION -->
+<section class="relative pt-48 pb-32 overflow-hidden min-h-screen hero-yellow">
+
+    <!-- MOUNTAIN BACKGROUND -->
+      <div class="absolute inset-0 z-0">
+        <img 
+          src="images/mountain-bg.jpg" 
+          alt="Mountain Background"
+          class="w-full h-full object-cover opacity-20"
+        />
+        <div class="absolute inset-0 bg-black/40"></div>
+      </div>
+
+    <!-- FLOATING ICONS -->
+    <div class="floating-icon-container">
+        <i class="fab fa-youtube floating-icon text-[#FF0000]" style="top:15%; left:10%; font-size:40px;"></i>
+        <i class="fab fa-youtube floating-icon text-[#FF0000]" style="top:65%; left:85%; font-size:25px; opacity:.04;"></i>
+        <i class="fab fa-youtube floating-icon text-[#FF0000]" style="top:40%; left:75%; font-size:32px;"></i>
+
+        <i class="fab fa-instagram floating-icon text-[#E1306C]" style="top:20%; left:80%; font-size:45px;"></i>
+        <i class="fab fa-instagram floating-icon text-[#E1306C]" style="top:70%; left:15%; font-size:28px; opacity:.05;"></i>
+        <i class="fab fa-instagram floating-icon text-[#E1306C]" style="top:50%; left:5%; font-size:35px;"></i>
+    </div>
+
+  
+
+    <!-- MAIN HERO CONTENT -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 text-center"
+         data-aos="fade-up" data-aos-duration="1200">
+
+        <!-- PILL -->
+  <div class="inline-flex items-center gap-2 bg-white/10 border border-white/30 rounded-full px-5 py-1.5 mb-10 backdrop-blur-md">
+  <span class="text-[12px] font-semibold text-white">
+    Prime Reach <span class="font-normal text-white/70">presents</span>
+  </span>
+</div>
+
+
+     <!-- HEADLINE -->
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-[1] font-display text-center">
+  <span class="block text-white">
+    We help you
+  </span>
+
+  <span class="block text-primary">
+    grow your brand
+  </span>
+
+  <span class="block text-white">
+    with content.
+  </span>
+</h1>
+
+
+<p class="text-lg md:text-xl text-textSoft max-w-2xl mx-auto mb-6 leading-relaxed font-light">
+  We combine <span class="text-[#E6FF00]">branding strategy</span> and
+  <span class="text-[#E6FF00]">high-retention video editing</span>
+  to build content that scales on YouTube & Instagram.
+</p>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ✅ ADD METRIC CHIPS HERE -->
+<div class="flex flex-wrap justify-center gap-3 mb-10">
+    <span class="metric-chip hero-yellow-chip">
+  20M+ Views Engineered
+</span>
+
+    <span class="metric-chip">
+        Retention-First Editing
+    </span>
+</div>
+
+
+    </section>
+
+    
+
+  <!-- ===============================
+     FIXED 3-FRAME SHOWCASE SECTION
+     =============================== -->
+    
+    
+    <!-- 4. PARTNERED CREATORS SECTION (BIGGER LOGS) -->
+    <section id="clients-section" class="py-32 border-t border-white/5 bg-[#0a0a0e] overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-20 text-center" data-aos="fade-down">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight text-center">
+  <span class="text-[#E6FF00] font-medium">Partnered</span>
+  <span class="text-white font-bold">Creators</span>
+</h2>
+
+
+            <p class="text-textSoft text-[10px] uppercase tracking-[0.3em] font-bold font-mono">Scaling authority through systematic content design</p>
+        </div>
+        
+        <div class="w-full overflow-hidden relative">
+            <div class="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#0a0a0e] to-transparent z-10"></div>
+            <div class="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#0a0a0e] to-transparent z-10"></div>
+            
+            <div class="flex w-max gap-24 animate-marquee-right">
+                <div id="clients-track" class="flex gap-24 items-center"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="video-showcase-section">
+
+  <div class="max-w-7xl mx-auto px-6 mb-20 text-center">
+  <h2 class="text-5xl md:text-7xl font-bold tracking-tight font-sans text-white">
+  Retention <span class="text-[#E6FF00] font-medium">Showcase</span>
+</h2>
+
+    <p class="text-textSoft mt-6 max-w-xl mx-auto">
+      High-retention formats engineered inside the timeline.
+    </p>
+  </div>
+
+    <section class="video-showcase-section">
+  <div class="showcase-row">
+
+    <!-- LEFT -->
+    <div class="showcase-card tilt-left">
+
+  <video
+    class="showcase-video"
+    muted
+    loop
+    playsinline
+    preload="metadata">
+    <source src="https://res.cloudinary.com/dd6rmusvt/video/upload/v1767435745/Vedio1_udmi4y.mp4" type="video/mp4">
+  </video>
+
+  <!-- UNMUTE BUTTON -->
+  <button class="unmute-btn">🔇</button>
+
+  <!-- FOOTER (PROFILE + NAME) -->
+  <div class="card-footer">
+    <div class="avatar">
+      <img src="images/imagescreator5.jpg" alt="">
+    </div>
+    <div class="meta">
+      <strong>Vishvas</strong>
+      <span>25k+ Views</span>
+    </div>
+  </div>
+
+</div>
+
+
+    <!-- CENTER -->
+    <div class="showcase-card tilt-center">
+
+ <video
+  class="showcase-video"
+  muted
+  loop
+  playsinline
+  preload="metadata">
+  <source src="https://res.cloudinary.com/dd6rmusvt/video/upload/v1767432663/10_continental_food_fcmaew.mp4" type="video/mp4">
+</video>
+
+
+  <!-- UNMUTE BUTTON -->
+  <button class="unmute-btn">🔇</button>
+
+  <!-- FOOTER (PROFILE + NAME) -->
+  <div class="card-footer">
+    <div class="avatar">
+      <img src="images/imagescreator4.jpg" alt="">
+    </div>
+    <div class="meta">
+      <strong>Boots strapped</strong>
+      <span>50k+ Views</span>
+    </div>
+  </div>
+
+</div>
+
+
+    <!-- RIGHT -->
+    <div class="showcase-card tilt-right">
+
+  <video
+    class="showcase-video"
+    muted
+    loop
+    playsinline
+    preload="metadata">
+    <source src="https://res.cloudinary.com/dd6rmusvt/video/upload/v1767435361/Video3_usw4jy.mp4" type="video/mp4">
+  </video>
+
+  <!-- UNMUTE BUTTON -->
+  <button class="unmute-btn">🔇</button>
+
+  <!-- FOOTER (PROFILE + NAME) -->
+  <div class="card-footer">
+    <div class="avatar">
+      <img src="images/imagescreator6.jpg" alt="">
+    </div>
+    <div class="meta">
+      <strong>journalist</strong>
+      <span>80k+ Views</span>
+    </div>
+  </div>
+
+</div>
+
+
+  </div>
+</section>
+</section> 
+
+<!-- END: 3-FRAME RETENTION SHOWCASE -->
+
+<!-- 🔽 PASTE NEW HORIZONTAL (16:9) SECTION HERE 🔽 -->
+
+<section class="horizontal-showcase-section">
+
+  <div class="horizontal-row">
+
+    <!-- VIDEO 1 -->
+  <div class="horizontal-card">
+
+  <!-- VIDEO FRAME -->
+  <div class="horizontal-media">
+   <video
+  id="video1"
+  muted
+  loop
+  playsinline
+  preload="metadata"
+>
+  <source src="https://res.cloudinary.com/dd6rmusvt/video/upload/v1767434457/Long-Video-1_qzd7ag.mp4" type="video/mp4">
+</video>
+
+<button class="unmute-btn" onclick="toggleSound('video1', this)">
+  🔇
+</button>
+
+
+  </div>
+
+  <!-- PROFILE + TEXT -->
+  <div class="horizontal-meta">
+
+    <div class="horizontal-avatar">
+      <!-- CLIENT PROFILE IMAGE -->
+      <img src="images/imagescreator3.jpg" alt="Client">
+    </div>
+
+    <div class="horizontal-text">
+      <!-- VIDEO TITLE -->
+      <strong>Nagabasava</strong>
+      <!-- PLATFORM / FORMAT -->
+      <span>YouTube • 16:9</span>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+    <!-- VIDEO 2 -->
+<div class="horizontal-card">
+
+  <div class="horizontal-media">
+
+   <video
+  muted
+  loop
+  playsinline
+  preload="metadata">
+  <source src="https://res.cloudinary.com/dd6rmusvt/video/upload/v1767434077/Sequence_01_1_1_qnrhva.mp4" type="video/mp4">
+</video>
+
+
+    <!-- ✅ UNMUTE BUTTON (FIXED POSITION) -->
+    <button class="unmute-btn">🔇</button>
+
+    <div class="horizontal-meta">
+      <div class="horizontal-avatar">
+        <img src="images/imagescreator5.jpg" alt="Client">
+      </div>
+
+      <div class="horizontal-text">
+        <strong>Vishvas</strong>
+        <span>youtube</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+</div>
+</section>
+<section class="relative py-32 bg-[#050507] overflow-hidden">
+
+  <!-- HEADER -->
+<div class="max-w-7xl mx-auto px-6 mb-20 text-center">
+
+  <span class="text-[10px] tracking-[0.35em] font-bold text-[#E6FF00] uppercase">
+    Thumbnail
+  </span>
+
+  <h2 class="text-5xl md:text-6xl font-bold mt-6 text-white">
+    Clickable <span class="text-[#E6FF00]">Thumbnail</span>
+  </h2>
+
+  <p class="text-white/70 mt-6 max-w-xl mx-auto">
+    Engineered for retention. Designed for authority.
+  </p>
+
+</div>
+
+
+  <!-- FADE EDGES -->
+  <div class="absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-[#050507] to-transparent z-10"></div>
+  <div class="absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-[#050507] to-transparent z-10"></div>
+
+
+<!-- MOVING ROW -->
+<div class="flex w-max gap-20 animate-marquee-right px-20">
+
+  <!-- CARD -->
+  <div class="marquee-card">
+    <img src="images/tumb3.jpg" alt="Long form edit 1">
+  </div>
+
+  <div class="marquee-card">
+    <img src="images/tumb4.jpg" alt="Long form edit 2">
+  </div>
+
+  <div class="marquee-card">
+    <img src="images/tumb2.jpg" alt="Long form edit 3">
+  </div>
+
+  <div class="marquee-card">
+    <img src="images/tumb1.jpg" alt="Long form edit 4">
+  </div>
+
+
+
+
+  <!-- 🔁 DUPLICATE AGAIN (IMPORTANT) -->
+  <div class="marquee-card">
+    <img src="images/tumb5.jpg" alt="Long form edit 1 duplicate">
+  </div>
+
+  <div class="marquee-card">
+    <img src="images/tumb4.jpg" alt="Long form edit 2 duplicate">
+  </div>
+
+</div>
+
+
+</section>
+
+
+
+
+    <!-- ===============================
+     STUDIO REFINEMENT – REDESIGN
+     =============================== -->
+<section id="services-section" class="py-32 bg-bg border-t border-white/5 relative overflow-hidden">
+
+  <div class="max-w-7xl mx-auto px-6 mb-20 text-center">
+    <span class="text-[#E6FF00] text-[10px] font-bold tracking-[0.35em] uppercase font-mono">
+      What We Actually Do
+    </span>
+    <h2 class="text-5xl md:text-6xl font-bold mt-6 font-display tracking-tight">
+      We refine your <span class="text-[#E6FF00]">brand</span>,<br>
+      not just your videos.
+    </h2>
+    <p class="text-textSoft mt-6 max-w-xl mx-auto text-sm">
+      Every service is designed to make your content feel bigger, sharper, and more authoritative.
+    </p>
+  </div>
+
+
+
+
+  <!-- 🔥 2-COLUMN FULL WIDTH GRID -->
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16">
+
+    <!-- BRAND BUILDING -->
+    <div class="soft-card p-10 cursor-pointer group relative overflow-hidden reveal-3d flex flex-col">
+      <div class="absolute inset-0 bg-[#E6FF00]/5 opacity-0 group-hover:opacity-100 transition pointer-events-none"></div>
+
+
+      <div class="w-14 h-14 rounded-full bg-[#E6FF00]/15 flex items-center justify-center mb-8">
+        <i class="fas fa-bolt text-[#E6FF00] text-xl"></i>
+      </div>
+
+      <h3 class="text-2xl font-bold mb-4">Build Your Brand</h3>
+      <p class="text-textSoft text-sm mb-6">
+        We shape how your audience perceives you — authority, clarity, and trust.
+      </p>
+
+      <ul class="space-y-3 text-sm mb-10">
+        <li>✔ Content positioning & tone</li>
+        <li>✔ Visual identity through edits</li>
+        <li>✔ Long-term brand consistency</li>
+      </ul>
+<a href="brand-service.html" class="service-explore-btn relative z-20">
+  KNOW MORE
+</a>
+
+
+
+    </div>
+
+    <!-- VIDEO EDITING -->
+    <div class="soft-card p-10 cursor-pointer group relative overflow-hidden scale-[1.02] reveal-3d flex flex-col">
+     <div class="absolute inset-0 bg-[#E6FF00]/8 opacity-0 group-hover:opacity-100 transition pointer-events-none"></div>
+
+     <div class="w-14 h-14 rounded-full bg-[#1f2a00] flex items-center justify-center mb-8">
+  <span class="text-[#E6FF00] text-xl leading-none">✂</span>
+</div>
+
+
+
+
+
+
+      <h3 class="text-2xl font-bold mb-4">Edit for Attention</h3>
+      <p class="text-textSoft text-sm mb-6">
+        Editing engineered to stop scrolling and hold attention frame-by-frame.
+      </p>
+
+      <ul class="space-y-3 text-sm mb-10">
+        <li>✔ High-retention pacing</li>
+        <li>✔ Modern motion & captions</li>
+        <li>✔ YouTube & Reels optimized</li>
+      </ul>
+
+      <!-- ✅ FIXED BUTTON -->
+     <a href="video-editing-service.html"
+   class="service-explore-btn mt-auto inline-flex px-8 py-3 text-[11px] font-bold uppercase tracking-widest items-center gap-2">
+  Know More
+  <i class="fas fa-arrow-right text-xs"></i>
+</a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ===============================
+     HOW IT WORKS SECTION
+     =============================== -->
+<section id="how-it-works" class="hiw">
+
+  <!-- HEADER -->
+  <div class="hiw-header">
+<h2 class="hiw-title">
+  <span class="hiw-how">How</span> it works
+</h2>
+
+
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline">
+
+    <!-- STEP 01 -->
+    <div class="step left">
+      <div class="step-dot"></div>
+      <div class="step-content">
+        <div class="step-number">01</div>
+        <h3>Select your service</h3>
+        <p>
+          Choose between brand building or high-performance video editing.
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 02 -->
+    <div class="step right">
+      <div class="step-dot"></div>
+      <div class="step-content">
+        <div class="step-number">02</div>
+        <h3>Deep content analysis</h3>
+        <p>
+          We analyze your content and competitors to identify leverage points
+          and the exact solution needed.
+        </p>
+      </div>
+    </div>
+
+    <!-- STEP 03 -->
+    <div class="step left">
+      <div class="step-dot"></div>
+      <div class="step-content">
+        <div class="step-number">03</div>
+        <h3>On-time delivery</h3>
+        <p>
+          Precision execution with zero delays — structured, intentional,
+          and reliable.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<!-- ===============================
+     HELP / FAQ SECTION
+     =============================== -->
+<section id="faq" class="faq-section">
+  <div class="faq-container">
+
+    <div class="faq-header">
+      <span class="faq-pill">HELP & SUPPORT</span>
+      <h2>Questions, <span>answered</span>.</h2>
+      <p>Clear answers before you book a call.</p>
+    </div>
+
+    <!-- FAQ ITEM -->
+    <div class="faq-item">
+      <button class="faq-toggle">
+        <span>Do you only work with YouTube or Instagram?</span>
+        <i class="fas fa-plus"></i>
+      </button>
+      <div class="faq-answer">
+        We specialize in YouTube long-form and Instagram short-form.
+        Our systems are designed to scale both platforms without breaking brand consistency.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-toggle">
+        <span>Is this editing or full content management?</span>
+        <i class="fas fa-plus"></i>
+      </button>
+      <div class="faq-answer">
+        We don’t just edit. We design content structure, pacing, and growth systems.
+        Editing is one layer of a larger strategy.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-toggle">
+        <span>What happens after I book a call?</span>
+        <i class="fas fa-plus"></i>
+      </button>
+      <div class="faq-answer">
+        You receive a confirmation email with a meeting link.
+        On the call, we audit your content and outline a clear growth path.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-toggle">
+        <span>How much do your services cost?</span>
+        <i class="fas fa-plus"></i>
+      </button>
+      <div class="faq-answer">
+        Pricing depends on scope and volume.
+        We discuss exact numbers only after understanding your goals.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+    <footer class="py-12 border-t border-white/5 text-center text-textSoft text-[10px] uppercase tracking-[0.4em] font-bold font-mono">
+        © 2026 PrimeReachco  — Systematic Growth for YouTube & Instagram
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    
+    <script>
+        // Init Animations
+        AOS.init({ once: true, duration: 800, offset: 50 });
+
+        // === 1. MOUSE MOVE LOGIC ===
+       
+
+        document.addEventListener('mousemove', (e) => {
+            const { clientX: x, clientY: y } = e;
+            if(cursorDot) { cursorDot.style.left = `${x}px`; cursorDot.style.top = `${y}px`; }
+            if(cursorOutline) cursorOutline.animate({ left: `${x}px`, top: `${y}px` }, { duration: 500, fill: "forwards" });
+            if(badge) { badge.style.left = `${x}px`; badge.style.top = `${y}px`; }
+        });
+
+        // === 2. 3D TILT EFFECT ===
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left, y = e.clientY - rect.top;
+                const centerX = rect.width / 2, centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -5, rotateY = ((x - centerX) / centerX) * 5;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            card.addEventListener('mouseleave', () => { card.style.transform = `perspective(1000px) rotateX(0) rotateY(0) scale(1)`; });
+        });
+
+        // === 3. CREATORS INJECTION (BIGGER LOOP) ===
+        const clientsTrack = document.getElementById('clients-track');
+        if (clientsTrack) {
+            const creators = [
+                { image: 'images/imagescreator1.jpg', name: 'Sandeep Raj' }, 
+                { image: 'images/imagescreator2.jpg', name: 'Theru' },  
+                { image: 'images/imagescreator3.jpg', name: 'nagbasava' },  
+                { image: 'images/imagescreator4.jpg', name: 'bootstrap' }, 
+                { image: 'images/imagescreator5.jpg', name: 'vishvas acharya' },
+                { image: 'images/imagescreator6.jpg', name: 'Journalist' },
+            ];
+
+            const loopCreators = [...creators, ...creators, ...creators];
+            clientsTrack.innerHTML = loopCreators.map(c => `
+                <div class="flex flex-col items-center gap-8 group cursor-pointer hover:-translate-y-2 transition-transform duration-300">
+                    <div class="client-circle-lg">
+                        <img src="${c.image}" alt="${c.name}" onerror="this.src='https://placehold.co/200x200/121218/9CA3AF?text=${c.name.split(' ')[0]}'">
+                    </div>
+                    <span class="text-[11px] font-bold text-gray-400 tracking-[0.2em] uppercase opacity-60 group-hover:opacity-100 transition-all duration-300 group-hover:text-white font-mono">
+                        ${c.name}
+                    </span>
+                </div>
+            `).join('');
+        }
+
+        // === 4. SERVICES INJECTION & SCROLL ===
+        const serviceTrack = document.getElementById('service-track');
+        if (serviceTrack) {
+            const services = [
+                { 
+                    icon: 'fa-video', 
+                    title: 'YouTube Architecture', 
+                    points: ['Long-form narrative pacing.', 'Metadata and SEO optimization.', 'Authority building through depth.']
+                },
+                { 
+                    icon: 'fa-clapperboard', 
+                    title: 'Precision Editing', 
+                    points: ['Frame-by-frame refinement.', 'Intentional pacing and flow.', 'Optimized for retention metrics.']
+                },
+                { 
+                    icon: 'fa-pen-fancy', 
+                    title: 'Narrative Planning', 
+                    points: ['Structure guides the edit.', 'Hook design before recording.', 'Attention designed, not guessed.']
+                },
+                { 
+                    icon: 'fa-chart-network', 
+                    title: 'Growth Systems', 
+                    points: ['Platform-aware optimization.', 'Compounding reach strategy.', 'Long-term subscriber momentum.']
+                }
+            ];
+            const allServices = services.slice(0, 2);
+            serviceTrack.innerHTML = allServices.map(s => `
+                <div class="soft-card service-card p-10 w-[600px] flex flex-col justify-center group tilt-card border border-white/5 hover:border-primary/50 transition-all duration-300 relative overflow-hidden ">
+                   <div class="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+                    <div>
+                        <div class="w-14 h-14 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas ${s.icon}"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-6 tracking-tight uppercase">${s.title}</h3>
+                        <ul class="space-y-3 mb-8">
+                            ${s.points.map(point => `
+                                <li class="flex items-start gap-3 text-xs text-gray-400 group-hover:text-gray-300 transition-colors font-medium">
+                                    <span class="text-primary mt-0.5">•</span>
+                                    <span>${point}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    <button class="service-explore-btn mt-auto w-full py-4 rounded-xl border border-white/10 text-white text-[9px] font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2 group-hover:border-primary">
+                        View Module Details <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Service Scroll Logic (Improved)
+        const serviceContainer = document.getElementById('service-container');
+        let scrollPos = 0, scrollSpeed = 0, isHoveringService = false;
+        
+        if(serviceContainer && serviceTrack) {
+            scrollPos = -2000; 
+
+            serviceContainer.addEventListener('mouseenter', () => isHoveringService = true);
+            serviceContainer.addEventListener('mouseleave', () => isHoveringService = false);
+            serviceContainer.addEventListener('mousemove', (e) => {
+                const rect = serviceContainer.getBoundingClientRect();
+                const center = rect.width / 2, mouseX = e.clientX - rect.left;
+                scrollSpeed = ((mouseX - center) / center) * -8; 
+            });
+
+            function animateScroll() {
+                if(!isHoveringService) {
+                     scrollSpeed = -0.5;
+                }
+                scrollPos += scrollSpeed;
+                if (scrollPos < -4000) scrollPos = -2000;
+                if (scrollPos > 0) scrollPos = -2000;
+                serviceTrack.style.transform = `translateX(${scrollPos}px)`;
+                requestAnimationFrame(animateScroll);
+            }
+            animateScroll();
+        }
+
+        // === 6. SCATTER ANIMATION OBSERVER ===
+        const scatterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.querySelectorAll('.step-card');
+                    cards.forEach(card => card.classList.add('in-view'));
+                } else {
+                    const cards = entry.target.querySelectorAll('.step-card');
+                    cards.forEach(card => card.classList.remove('in-view'));
+                }
+            });
+        }, { threshold: 0.3 });
+
+        const scatterContainer = document.getElementById('scatter-container');
+        if(scatterContainer) scatterObserver.observe(scatterContainer);
+
+
+
+        const serviceOverlay = document.getElementById('service-details-overlay');
+        const closeServiceBtn = document.getElementById('close-service-details');
+        document.querySelectorAll('#hero-portfolio-btn, .portfolio-trigger-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => { e.preventDefault(); openServiceOverlay(); });
+        });
+        function openServiceOverlay() {
+            if(serviceOverlay) { serviceOverlay.classList.remove('hidden'); setTimeout(() => serviceOverlay.classList.remove('opacity-0'), 10); document.body.style.overflow = 'hidden'; }
+        }
+        function closeServiceOverlay() {
+            if(serviceOverlay) { serviceOverlay.classList.add('opacity-0'); setTimeout(() => { serviceOverlay.classList.add('hidden'); document.body.style.overflow = ''; }, 500); }
+        }
+        if(closeServiceBtn) closeServiceBtn.addEventListener('click', closeServiceOverlay);
+
+        const obs = new IntersectionObserver((es) => {
+            es.forEach(e => { if(e.isIntersecting) document.getElementById('crash-line').classList.add('animate'); });
+        }, { threshold: 0.4 });
+        const crashSec = document.getElementById('crash-section');
+        if(crashSec) obs.observe(crashSec);
+
+        /* 3D SHOWCASE VIDEO PLAY */
+document.querySelectorAll('.video-artifact').forEach(card=>{
+  const video = card.querySelector('video');
+  card.addEventListener('mouseenter',()=>video.play().catch(()=>{}));
+  card.addEventListener('mouseleave',()=>{
+    video.pause();
+    video.currentTime = 0;
+  });
+});
+/* ===============================
+<script>
+<script>
+/* =============================
+   AUTO PLAY WHEN SLIDE IS VISIBLE
+   ============================= */
+
+const slideObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      const video = entry.target.querySelector("video");
+      if (!video) return;
+
+      if (entry.isIntersecting) {
+        video.muted = true;        // required for autoplay
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  },
+  { threshold: 0.6 }
+);
+
+/* Observe ALL vertical showcase cards */
+document.querySelectorAll(".showcase-card").forEach(card => {
+  slideObserver.observe(card);
+});
+
+/* =============================
+   UNMUTE / MUTE BUTTON (FIXED)
+   ============================= */
+function toggleSound(videoId, btn) {
+  const video = document.getElementById(videoId);
+  if (!video) return;
+
+  if (video.muted) {
+    video.muted = false;
+    video.volume = 1;
+
+    // 🔥 THIS UNLOCKS AUDIO (MANDATORY)
+    video.play().catch(() => {});
+
+    btn.innerText = "🔊";
+  } else {
+    video.muted = true;
+    btn.innerText = "🔇";
+  }
+}
+
+function toggleVerticalSound(btn) {
+  const card = btn.closest(".showcase-card");
+  const video = card.querySelector("video");
+  if (!video) return;
+
+  if (video.muted) {
+    video.muted = false;
+    video.volume = 1;
+
+    // 🔥 REQUIRED FOR AUTOPLAYED VIDEOS
+    video.play().catch(() => {});
+
+    btn.innerText = "🔊";
+  } else {
+    video.muted = true;
+    btn.innerText = "🔇";
+  }
+}
+
+/* ===============================
+   VERTICAL SHOWCASE AUTOPLAY + UNMUTE
+   =============================== */
+
+const verticalObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      const video = entry.target.querySelector("video");
+      if (!video) return;
+
+      if (entry.isIntersecting) {
+        video.muted = true;           // autoplay rule
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  },
+  { threshold: 0.6 }
+);
+
+document.querySelectorAll(".showcase-card").forEach(card => {
+  const video = card.querySelector("video");
+  const btn = card.querySelector(".unmute-btn");
+
+  verticalObserver.observe(card);
+
+  btn.addEventListener("click", e => {
+    e.stopPropagation(); // VERY IMPORTANT
+
+    video.muted = !video.muted;
+
+    if (!video.muted) {
+      video.volume = 1;
+      video.play().catch(() => {});
+      btn.textContent = "🔊";
+    } else {
+      btn.textContent = "🔇";
+    }
+  });
+});
+/* ===============================
+   3D REVEAL ON SCROLL (SERVICES)
+   =============================== */
+
+// remove no-js fallback once JS is alive
+document.body.classList.remove("no-js");
+
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("in-view");
+        }, index * 120); // stagger
+      }
+    });
+  },
+  { threshold: 0.35 }
+);
+
+// wait for DOM safety
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".reveal-3d").forEach(el => {
+    revealObserver.observe(el);
+  });
+});
+
+
+</script>
+<!-- LAST SCRIPT – MOBILE MENU FIX -->
+<script>
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    document.querySelectorAll(".mobile-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  }
+</script>
+
+<script>
+  document.querySelectorAll(".faq-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      item.classList.toggle("active");
+    });
+  });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // remove no-js fallback
+  document.body.classList.remove("no-js");
+
+  const steps = document.querySelectorAll(".step");
+  const timeline = document.querySelector(".timeline");
+
+  if (!steps.length || !timeline) {
+    console.warn("Timeline not found");
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add("show");
+            timeline.classList.add("active"); // yellow line fills
+          }, index * 220);
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  steps.forEach(step => observer.observe(step));
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ===============================
+     AUTOPLAY WHEN CARD IS VISIBLE
+     =============================== */
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        const video = entry.target.querySelector("video");
+        if (!video) return;
+
+        if (entry.isIntersecting) {
+          video.muted = true;           // required for autoplay
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    },
+    { threshold: 0.6 } // plays when 60% visible
+  );
+
+  document.querySelectorAll(".horizontal-card, .showcase-card")
+    .forEach(card => observer.observe(card));
+
+  /* ===============================
+     UNMUTE BUTTON (USER ACTION)
+     =============================== */
+  document.querySelectorAll(".unmute-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const card = btn.closest(".horizontal-card, .showcase-card");
+      const video = card.querySelector("video");
+      if (!video) return;
+
+      if (video.muted) {
+        video.muted = false;
+        video.volume = 1;
+        video.play().catch(() => {});
+        btn.textContent = "🔊";
+      } else {
+        video.muted = true;
+        btn.textContent = "🔇";
+      }
+    });
+  });
+
+});
+</script>
+<script>
+/* ===============================
+   FINAL UNMUTE FIX (GLOBAL)
+   =============================== */
+
+document.querySelectorAll(".unmute-btn").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+
+    const card = btn.closest(".horizontal-card, .showcase-card");
+    const video = card.querySelector("video");
+    if (!video) return;
+
+    // 🔒 mark as user-controlled
+    video.dataset.userMuted = video.muted ? "false" : "true";
+
+    video.muted = !video.muted;
+
+    if (!video.muted) {
+      video.volume = 1;
+      video.play().catch(() => {});
+      btn.textContent = "🔊";
+      video.dataset.userMuted = "false";
+    } else {
+      btn.textContent = "🔇";
+      video.dataset.userMuted = "true";
+    }
+  });
+});
+</script>
+<script>
+/* ===== PATCH: FIX VIDEO-2 UNMUTE ONLY ===== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const video2Card = document.querySelector(
+    '.horizontal-card video[src*="long-video-2"]'
+  )?.closest(".horizontal-card");
+
+  if (!video2Card) return;
+
+  const video = video2Card.querySelector("video");
+  const btn = video2Card.querySelector(".unmute-btn");
+
+  if (!video || !btn) return;
+
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+
+    video.muted = !video.muted;
+
+    if (!video.muted) {
+      video.volume = 1;
+      video.play().catch(() => {});
+      btn.textContent = "🔊";
+    } else {
+      btn.textContent = "🔇";
+    }
+  });
+});
+</script>
+<script>
+/* ===============================
+   VIDEO USER CONTROL LOCK
+   =============================== */
+document.querySelectorAll("video").forEach(video => {
+  video.dataset.userControlled = "false";
+});
+
+document.querySelectorAll(".unmute-btn").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    const card = btn.closest(".showcase-card, .horizontal-card");
+    const video = card.querySelector("video");
+    if (!video) return;
+
+    video.dataset.userControlled = "true";
+  });
+});
+
+/* Prevent auto-mute after user action */
+const safeObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const video = entry.target.querySelector("video");
+    if (!video) return;
+
+    if (!entry.isIntersecting && video.dataset.userControlled !== "true") {
+      video.pause();
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll(".showcase-card, .horizontal-card")
+  .forEach(card => safeObserver.observe(card));
+</script>
+
+</body>
+</html>
+

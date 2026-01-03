@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <title>Brand Building | PrimeReach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#050507',
+            accent: '#E6FF00'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: #050507;
+      --accent: #E6FF00;
+    }
+
+    body {
+      background: var(--bg);
+      color: white;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    .text-accent { color: var(--accent); }
+
+    .step-section {
+      position: relative;
+    }
+
+    .accent-card {
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.01)
+      );
+      border: 1px solid rgba(230,255,0,0.35);
+      border-radius: 24px;
+      padding: 40px;
+      backdrop-filter: blur(8px);
+      position: relative;
+      transition: transform 0.4s ease;
+    }
+
+    .accent-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .accent-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      box-shadow: 0 0 50px rgba(230,255,0,0.08);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .accent-card:hover::after {
+      opacity: 1;
+    }
+
+    /* ===============================
+       PREMIUM SMOOTH ANIMATION
+       =============================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px) scale(0.97);
+      transition:
+        opacity 0.9s ease,
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* stagger children */
+    .reveal.in-view > * {
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .reveal.in-view > *:nth-child(1) { animation-delay: 0.05s; }
+    .reveal.in-view > *:nth-child(2) { animation-delay: 0.12s; }
+    .reveal.in-view > *:nth-child(3) { animation-delay: 0.18s; }
+    .reveal.in-view > *:nth-child(4) { animation-delay: 0.24s; }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 1.1s ease-out forwards;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.35s;
+}
+
+    
+  </style>
+</head>
+
+<body>
+
+<section class="relative py-28 max-w-7xl mx-auto px-6 text-center overflow-hidden bg-[#050507]">
+
+
+  <!-- Background image (BOTTOM) -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="./images/hero-bg.jpg"
+      alt="Hero background"
+      class="w-full h-full object-cover opacity-70"
+    />
+  </div>
+
+  <!-- Dark gradient overlay (above image, below text) -->
+  <div class="absolute inset-0 z-10 bg-gradient-to-b 
+            from-[#050507]/85 
+            via-[#050507]/70 
+            to-[#050507]">
+</div>
+
+
+  <!-- Yellow glow (above overlay, below text) -->
+  <div class="absolute inset-0 z-20 pointer-events-none">
+    <div class="absolute top-[55%] left-1/2 
+            -translate-x-1/2 -translate-y-1/2
+            w-[700px] h-[700px]
+            bg-accent/12 blur-[180px] rounded-full">
+</div>
+
+  </div>
+
+<!-- CONTENT (TOP MOST — NEVER AFFECTED BY OPACITY) -->
+<div class="relative z-30 text-center">
+
+  <span class="text-accent text-xs tracking-[0.4em] font-mono uppercase block 
+               animate-fade-up animate-delay-1">
+    PrimeReach System
+  </span>
+
+  <h1 class="mt-6 text-5xl md:text-6xl font-bold leading-[1.1] 
+             animate-fade-up animate-delay-2">
+    We Don’t Just Build Content.<br>
+    <span class="text-accent">We Build Brands.</span>
+  </h1>
+
+  <p class="text-gray-400 mt-6 text-base leading-relaxed max-w-2xl mx-auto 
+            animate-fade-up animate-delay-2">
+    A complete content system for creators who want trust, positioning,
+    and long-term relevance — not noise.
+  </p>
+
+</div>
+
+
+
+</section>
+
+
+
+<!-- ===============================
+ STEP 01
+ =============================== -->
+<section class="step-section reveal max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+  <div>
+    <span class="text-accent text-xs tracking-[0.3em] font-mono">STEP 01</span>
+    <h2 class="text-3xl font-bold mt-3 mb-4">Deep Brand & Content Analysis</h2>
+    <p class="text-gray-400 text-sm mb-5">
+      We audit your content, niche, competitors, and audience psychology.
+    </p>
+    <ul class="space-y-2 text-sm">
+      <li>✔ Audience intent & behavior</li>
+      <li>✔ Competitor & niche gap analysis</li>
+      <li>✔ Authority vs entertainment balance</li>
+      <li>✔ Brand clarity & positioning</li>
+    </ul>
+  </div>
+
+  <div class="accent-card">
+    <p class="text-accent text-xs font-mono mb-2">WHY THIS MATTERS</p>
+    <p class="text-gray-300 text-sm">
+      Random content kills trust. Strategy builds authority.
+    </p>
+  </div>
+</section>
+
+<!-- ===============================
+ STEP 02
+ =============================== -->
+<section class="step-section reveal max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+  <div class="accent-card order-2 md:order-1">
+    <p class="text-accent text-xs font-mono mb-2">STRUCTURE</p>
+    <p class="text-gray-300 text-sm">
+      Scripts engineered for clarity, pacing, and retention.
+    </p>
+  </div>
+
+  <div class="order-1 md:order-2">
+    <span class="text-accent text-xs tracking-[0.3em] font-mono">STEP 02</span>
+    <h2 class="text-3xl font-bold mt-3 mb-4">Authority-Driven Scripting</h2>
+    <ul class="space-y-2 text-sm">
+      <li>✔ Hook engineering</li>
+      <li>✔ Emotional pacing</li>
+      <li>✔ Retention flow</li>
+      <li>✔ Brand voice consistency</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===============================
+ STEP 03
+ =============================== -->
+<section class="step-section reveal max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+  <div>
+    <span class="text-accent text-xs tracking-[0.3em] font-mono">STEP 03</span>
+    <h2 class="text-3xl font-bold mt-3 mb-4">Precision Video Editing</h2>
+    <ul class="space-y-2 text-sm">
+      <li>✔ Retention pacing</li>
+      <li>✔ Motion & captions</li>
+      <li>✔ Visual authority cues</li>
+    </ul>
+  </div>
+
+  <div class="accent-card">
+    <p class="text-accent text-xs font-mono mb-2">EXECUTION</p>
+    <p class="text-gray-300 text-sm">
+      Editing engineered for trust, not just views.
+    </p>
+  </div>
+</section>
+
+<!-- ===============================
+ STEP 04
+ =============================== -->
+<section class="step-section reveal max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+  <div class="accent-card order-2 md:order-1">
+    <p class="text-accent text-xs font-mono mb-2">DISTRIBUTION</p>
+    <p class="text-gray-300 text-sm">
+      Posting with intent, not randomness.
+    </p>
+  </div>
+
+  <div class="order-1 md:order-2">
+    <span class="text-accent text-xs tracking-[0.3em] font-mono">STEP 04</span>
+    <h2 class="text-3xl font-bold mt-3 mb-4">Posting & Management</h2>
+    <ul class="space-y-2 text-sm">
+      <li>✔ Platform strategy</li>
+      <li>✔ Scheduling systems</li>
+      <li>✔ Consistency loops</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===============================
+ STEP 05
+ =============================== -->
+<section class="step-section reveal max-w-7xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-16 items-center">
+  <div>
+    <span class="text-accent text-xs tracking-[0.3em] font-mono">STEP 05</span>
+    <h2 class="text-3xl font-bold mt-3 mb-4">Performance & Growth Analysis</h2>
+    <ul class="space-y-2 text-sm">
+      <li>✔ Retention metrics</li>
+      <li>✔ Performance review</li>
+      <li>✔ Iteration systems</li>
+    </ul>
+  </div>
+
+  <div class="accent-card">
+    <p class="text-accent text-xs font-mono mb-2">OPTIMIZATION</p>
+    <p class="text-gray-300 text-sm">
+      Data-driven growth becomes predictable.
+    </p>
+  </div>
+</section>
+
+<!-- ===============================
+ FINAL CTA
+ =============================== -->
+<section class="py-24 text-center">
+  <h2 class="text-4xl font-bold mb-5">Ready to build real brand?</h2>
+ <a href="https://calendly.com/contact-primereachco/30min" target="_blank"
+  class="inline-block bg-accent text-black px-12 py-4 rounded-full font-bold uppercase text-sm tracking-widest hover:scale-105 transition">
+  Book Call
+</a>
+
+
+</section>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.25,
+      rootMargin: '0px 0px -80px 0px'
+    }
+  );
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
