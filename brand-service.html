@@ -1693,20 +1693,12 @@
       display: flex;
       gap: 48px;
       width: max-content;
-      animation: marqueeLeft 22s linear infinite;
+     
 
       padding-left: 100%;
     }
 
-    @keyframes marqueeLeft {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
-    }
+ 
 
     .marquee-card {
       width: 420px;
@@ -1843,9 +1835,10 @@
    MARQUEE CONTAINER
 =============================== */
 
-.marquee {
+..marquee {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   position: relative;
   cursor: grab;
   user-select: none;
