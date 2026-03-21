@@ -1976,9 +1976,12 @@
   color: black;
 }/* MOBILE: SHOW 1 VIDEO ONLY */
 @media (max-width: 768px) {
+
   .marquee {
-    overflow-x: auto;
+    overflow-x: auto !important;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .track {
@@ -1986,17 +1989,18 @@
     gap: 0;
   }
 
-  .short-card {
-    min-width: 100%;
-    max-width: 100%;
+  .short-card,
+  .long-card {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
     scroll-snap-align: center;
   }
 
-  .long-card {
-    min-width: 100%;
-    max-width: 100%;
-    scroll-snap-align: center;
+  .short-card {
+    height: 85vh;
   }
+
 }
   </style>
 </head>
