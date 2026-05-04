@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PrimeReach | Content Growth Studio</title>
+    <title>Virex Media Hub | Content Growth Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -38,7 +38,16 @@
             max-width: 1280px; margin: 0 auto; padding: 0 20px;
             height: 64px; display: flex; justify-content: space-between; align-items: center;
         }
-        .logo { font-size: 22px; font-weight: 800; text-decoration: none; color: #fff; letter-spacing: -0.02em; }
+        .logo {
+            display: inline-flex; align-items: center;
+            font-size: 22px; font-weight: 800; text-decoration: none; color: #fff;
+            letter-spacing: -0.02em;
+        }
+        .logo img {
+            height: 42px; width: auto; object-fit: contain;
+            /* The logo has a black background — invert slightly so it pops on dark nav */
+            filter: brightness(1.1);
+        }
         .logo span { color: var(--y); }
         .nav-links {
             display: flex; gap: 36px; font-size: 11px; font-weight: 700;
@@ -170,10 +179,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* perspective creates the 3-D depth */
             perspective: 1200px;
             perspective-origin: 50% 45%;
-            gap: 28px;               /* real gap — no overlapping */
+            gap: 28px;
             padding: 30px 60px 70px;
             position: relative;
             z-index: 1;
@@ -181,29 +189,23 @@
 
         /* Base phone card */
         .show-card {
-            /* ── SIZE: smaller, like the reference ── */
             width: 200px;
             aspect-ratio: 9 / 16;
-
             border-radius: 32px;
             overflow: hidden;
             background: #080808;
             position: relative;
             flex-shrink: 0;
             cursor: pointer;
-
-            /* Phone-bezel look */
             box-shadow:
                 0 40px 90px rgba(0,0,0,0.85),
                 inset 0 0 0 1.5px rgba(255,255,255,0.07),
                 inset 0 0 0 6px rgba(0,0,0,0.8);
-
             transition:
                 transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
                 box-shadow 0.4s ease;
         }
 
-        /* Glass sheen */
         .show-card::before {
             content: ""; position: absolute; inset: 0; border-radius: inherit;
             background: linear-gradient(150deg, rgba(255,255,255,0.1) 0%, transparent 45%);
@@ -212,7 +214,6 @@
 
         .show-card video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* Yellow border glow on hover */
         .show-card:hover {
             box-shadow:
                 0 60px 120px rgba(0,0,0,0.92),
@@ -220,7 +221,6 @@
                 inset 0 0 0 6px rgba(0,0,0,0.8);
         }
 
-        /* ── LEFT: tilt toward viewer on the left ── */
         .show-left {
             transform: rotateY(18deg) rotateZ(-3deg) scale(0.93);
             z-index: 1;
@@ -230,7 +230,6 @@
             z-index: 4;
         }
 
-        /* ── CENTER: straight, slightly larger, front ── */
         .show-center {
             transform: scale(1.08) translateZ(30px);
             z-index: 3;
@@ -240,7 +239,6 @@
             z-index: 5;
         }
 
-        /* ── RIGHT: mirror of left ── */
         .show-right {
             transform: rotateY(-18deg) rotateZ(3deg) scale(0.93);
             z-index: 1;
@@ -250,7 +248,7 @@
             z-index: 4;
         }
 
-        /* ── MOBILE gallery (unchanged) ── */
+        /* ── MOBILE gallery ── */
         .mobile-gallery { display: none; }
 
         .mob-swipe {
@@ -363,7 +361,7 @@
         }
 
         /* ══════════════════════
-           MOBILE  (unchanged)
+           MOBILE
         ══════════════════════ */
         @media (max-width: 768px) {
             .nav-links { display: none !important; }
@@ -391,6 +389,8 @@
             .cta-section { padding: 70px 20px; }
             .cta-trust { flex-direction: column; gap: 8px; align-items: center; }
             .cta-btn { padding: 14px 26px; font-size: 11px; }
+
+            .logo img { height: 34px; }
         }
 
         /* ══════════════════════
@@ -413,7 +413,10 @@
 <!-- NAV -->
 <nav>
     <div class="nav-inner">
-        <a href="#" class="logo">Prime<span>Reach</span></a>
+        <!-- Logo: Virex Media Hub image -->
+        <a href="#" class="logo">
+            <img alt="Virex Media Hub">
+        </a>
         <div class="nav-links">
             <a href="#gallery">Gallery</a>
             <a href="#how-system">How It Works</a>
@@ -448,7 +451,7 @@
         <i class="fab fa-instagram fi" style="top:38%;left:76%;font-size:32px;color:#E1306C;animation-delay:-2s;"></i>
     </div>
     <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-        <div class="hero-pill">Prime Reach <span>presents</span></div>
+        <div class="hero-pill">Virex Media Hub <span>presents</span></div>
         <h1 class="hero-h1">
             We help you<br>
             <span class="yel">grow your brand</span><br>
@@ -479,7 +482,7 @@
         <p>High-retention formats engineered inside the timeline.</p>
     </div>
 
-    <!-- ─── DESKTOP: 3 properly-sized tilted cards ─── -->
+    <!-- ─── DESKTOP: 3 tilted cards ─── -->
     <div class="showcase-row">
         <div class="show-card show-left">
             <video autoplay muted loop playsinline preload="none">
@@ -500,7 +503,7 @@
         </div>
     </div>
 
-    <!-- ─── MOBILE: horizontal swipe (unchanged) ─── -->
+    <!-- ─── MOBILE: horizontal swipe ─── -->
     <div class="mobile-gallery">
         <div class="mob-swipe" id="mobSwipe">
             <div class="mob-track">
@@ -622,7 +625,7 @@
     </div>
 </section>
 
-<footer>© 2026 PrimeReachco — Systematic Growth for YouTube &amp; Instagram</footer>
+<footer>© 2026 Virex Media Hub — Systematic Growth for YouTube &amp; Instagram</footer>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
